@@ -1,0 +1,40 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Umami plugin for Craft CMS
+ *
+ * Report Widget Body
+ *
+ * @author    Sten Van den Bergh
+ * @copyright Copyright (c) 2020 Sten Van den Bergh
+ * @link      https://stenvdb.be
+ * @package   Umami
+ * @since     1.0.0
+ */
+#}
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@stenvdb/umami/assetbundles/umami/dist', true) ~ '/img/Widget.svg' %}
+
+<div class="fa--m-widget-spacing">
+  <div class="fa-border-solid fa-border-b fa-border-gray-200 fa-p-widget-spacing">
+    <h3 class="fa-leading-none fa-mb-0">
+      <span class="fa-font-bold"><span class="fa-text-2xl js-fa-total">&hellip;</span> <span class="fa-text-craft-blue">visitors</span></span>
+      <span class="fa-text-gray-500">
+        {% if settings.period == 'year' %}
+        {{ 'in het last'|t('umami') }}
+        {% else %}
+        {{ 'in the last'|t('umami') }}
+        {% endif %}
+      </span>
+      <span class="fa-font-bold">{{ settings.period|t('umami') }}</span>
+    </h3>
+  </div>
+  <div class="fa-my-6"><canvas id="myChart" width="400" height="200"></canvas></div>
+  <div class="fa-border-solid fa-border-t fa-border-gray-200 fa-flex fa-justify-end fa-items-end">
+    <div class="fa-px-widget-spacing fa-py-4 fa-flex fa-items-center fa-text-xs">
+      <span class="">powered by</span>
+      <img src="{{ iconUrl }}" height="16" width="18" class="fa-mx-1" />
+      <a href="https://umami.is/" target="_blank" class="fa-underline">umami</a>
+    </div>
+  </div>
+</div>

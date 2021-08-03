@@ -1,0 +1,12 @@
+{
+  "reportwidget.css": "/reportwidget/dist/css/reportwidget.min.css",
+  "reportwidget.js": "/reportwidget/dist/js/reportwidget.min.js",
+  "statisticswidget.css": "/statisticswidget/dist/css/statisticswidget.min.css",
+  "statisticswidget.js": "/statisticswidget/dist/js/statisticswidget.min.js",
+  "toppageswidget.css": "/toppageswidget/dist/css/toppageswidget.min.css",
+  "toppageswidget.js": "/toppageswidget/dist/js/toppageswidget.min.js",
+  "umami.css": "/umami/dist/css/umami.min.css",
+  "umami.js": "/umami/dist/js/umami.min.js",
+  "umamisettings.css": "/umamisettings/dist/css/umamisettings.min.css",
+  "umamisettings.js": "/umamisettings/dist/js/umamisettings.min.js"
+}

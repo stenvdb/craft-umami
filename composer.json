@@ -1,0 +1,44 @@
+{
+    "name": "stenvdb/craft-umami",
+    "description": "Statistics and chart widgets for umami",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "umami",
+        "analytics"
+    ],
+    "support": {
+        "docs": "https://github.com/stenvdb/craft-umami/blob/master/README.md",
+        "issues": "https://github.com/stenvdb/craft-umami/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sten Van den Bergh",
+            "homepage": "https://stenvdb.be"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "stenvdb\\umami\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Umami",
+        "handle": "umami",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/stenvdb/craft-umami/master/CHANGELOG.md",
+        "components": {
+            "reports": "stenvdb\\umami\\services\\Reports"
+        },
+        "class": "stenvdb\\umami\\Umami"
+    }
+}

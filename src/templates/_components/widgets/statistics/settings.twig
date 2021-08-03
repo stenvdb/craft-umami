@@ -1,0 +1,31 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Umami plugin for Craft CMS
+ *
+ * Statistics Widget Settings
+ *
+ * @author    Sten Van den Bergh
+ * @copyright Copyright (c) 2020 Sten Van den Bergh
+ * @link      https://stenvdb.be
+ * @package   Umami
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("stenvdb\\umami\\assetbundles\\umami\\UmamiAsset") %}
+
+{% set periodOptions = [
+  { label: 'week'|t('umami')|title, value: 'week' },
+  { label: 'month'|t('umami')|title, value: 'month' },
+  { label: 'year'|t('umami')|title, value: 'year' }
+] %}
+
+{{ forms.selectField({
+  label: 'period'|t('umami')|title,
+  name: 'period',
+  options: periodOptions,
+  value: settings.period,
+}) }}

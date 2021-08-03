@@ -1,0 +1,80 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Umami plugin for Craft CMS 3.x
+ *
+ * Umami Settings.twig
+ *
+ * @author    Sten Van den Bergh
+ * @copyright Copyright (c) 2020 Sten Van den Bergh
+ * @link      https://stenvdb.be
+ * @package   Umami
+ * @since     1.0.0
+ */
+#}
+{% extends '_layouts/cp' %}
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("stenvdb\\umami\\assetbundles\\umamisettings\\SettingsAsset") %}
+
+{% set title = 'Umami' | t('umami') %}
+
+{% set content %}
+<input type="hidden" name="action" value="umami/settings/save">
+
+{{ redirectInput('settings/plugins/umami') }}
+
+<div id="settings">
+    {{ forms.autosuggestField({
+        label: 'Base URI',
+        instructions: 'The domain name where Umami is hosted. This is also the URL where the tracker code is pointed to.',
+        id: 'baseUri',
+        name: 'settings[baseUri]',
+        first: true,
+        value: settings['baseUri'],
+        suggestEnvVars: true,
+      })
+    }}
+
+    {{ forms.autosuggestField({
+        label: 'Website ID',
+        type: 'text',
+        instructions: 'The website ID of this site. You can find the ID in your tracking code snippet.',
+        id: 'websiteId',
+        name: 'settings[websiteId]',
+        value: settings['websiteId'],
+        suggestEnvVars: true,
+      })
+    }}
+
+    {{ forms.autosuggestField({
+        label: 'Username',
+        type: 'email',
+        instructions: '',
+        id: 'username',
+        name: 'settings[username]',
+        value: settings['username'],
+        suggestEnvVars: true,
+      })
+    }}
+
+    {{ forms.autosuggestField({
+        label: 'Password',
+        type: 'password',
+        instructions: '',
+        id: 'password',
+        name: 'settings[password]',
+        value: settings['password'],
+        suggestEnvVars: true,
+      })
+    }}
+
+  {{ forms.lightswitchField({
+    label: "Inject Tracking Snippet"|t("umami")|md,
+    instructions: 'If enabled the tracking snippet will automatically be injected in the head section of your site.'|t('umami'),
+    id: "injectTracking",
+    name: 'settings[injectTracking]',
+    on: settings.injectTracking
+  }) }}
+</div>
+{% endset %}
