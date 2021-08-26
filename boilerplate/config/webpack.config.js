@@ -81,7 +81,7 @@ if (PROD) {
 
 const webpackConfig = {
   mode: DEV ? 'development' : 'production',
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
   context: project.paths.client(),
   entry: {
     umami: ['./umami/src/js/umami.js'],
@@ -206,6 +206,10 @@ const webpackConfig = {
     ]
   },
   plugins: [
+    // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin({
+      resourceRegExp: /moment$/,
+    }),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(project.globals)
     }),

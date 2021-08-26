@@ -12,6 +12,18 @@
 /build/*
 /yarn-error.log
 
+# SOURCE FILES
+/src/assetbundles/reportwidget/dist/css/reportwidget.css
+/src/assetbundles/reportwidget/dist/js/reportwidget.js
+/src/assetbundles/statisticswidget/dist/css/statisticswidget.css
+/src/assetbundles/statisticswidget/dist/js/statisticswidget.js
+/src/assetbundles/toppageswidget/dist/css/toppageswidget.css
+/src/assetbundles/toppageswidget/dist/js/toppageswidget.js
+/src/assetbundles/umami/dist/css/umami.css
+/src/assetbundles/umami/dist/js/umami.js
+/src/assetbundles/umamisettings/dist/css/umamisettings.css
+/src/assetbundles/umamisettings/dist/js/umamisettings.js
+
 # MISC FILES
 .cache
 .DS_Store
