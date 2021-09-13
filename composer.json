@@ -2,7 +2,7 @@
     "name": "stenvdb/craft-umami",
     "description": "Statistics and chart widgets for umami",
     "type": "craft-plugin",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "keywords": [
         "craft",
         "cms",
