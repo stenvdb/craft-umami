@@ -42,16 +42,19 @@ window.Umami.StatisticsWidget = class UmamiStatisticsWidget {
         after: this.config.after.unix()
       },
     }).then((response) => {
-      this.uniqueVisEl.innerHTML = response.data.uniques;
-      this.pageviewsEl.innerHTML = response.data.pageviews;
-      const t = (response.data.totaltime && response.data.pageviews)
-        ? response.data.totaltime / (response.data.pageviews - response.data.bounces) : 0;
+      console.log(response);
+      this.uniqueVisEl.innerHTML = response.data.uniques.value;
+      this.pageviewsEl.innerHTML = response.data.pageviews.value;
+      const t = (response.data.totaltime.value && response.data.pageviews.value)
+        ? response.data.totaltime.value / (
+          response.data.pageviews.value - response.data.bounces.value
+        ) : 0;
       this.avgTimeEl.innerHTML = dayjs()
         .hour(0).minute(0).second(t)
         .millisecond(0)
         .format('mm:ss');
-      const num = Math.min(response.data.uniques, response.data.bounces);
-      this.bounceRateEl.innerHTML = `${response.data.uniques ? (num / response.data.uniques) * 100 : 0}%`;
+      const num = Math.min(response.data.uniques.value, response.data.bounces.value);
+      this.bounceRateEl.innerHTML = `${response.data.uniques.value ? (num / response.data.uniques.value) * 100 : 0}%`;
     });
   }
 

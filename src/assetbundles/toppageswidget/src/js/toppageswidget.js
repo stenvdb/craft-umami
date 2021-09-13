@@ -28,6 +28,7 @@ window.Umami.TopPagesWidget = class UmamiTopPagesWidget {
     }).then((response) => {
       const labels = [];
       const data = [];
+      response.data.splice(20);
 
       // Update chart.js data & labels array
       response.data.forEach((row) => {
