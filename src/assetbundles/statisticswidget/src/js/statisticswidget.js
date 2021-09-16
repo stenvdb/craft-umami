@@ -54,7 +54,9 @@ window.Umami.StatisticsWidget = class UmamiStatisticsWidget {
         .millisecond(0)
         .format('mm:ss');
       const num = Math.min(response.data.uniques.value, response.data.bounces.value);
-      this.bounceRateEl.innerHTML = `${response.data.uniques.value ? (num / response.data.uniques.value) * 100 : 0}%`;
+      const bounceRate = response.data.uniques.value
+        ? (num / response.data.uniques.value) * 100 : 0;
+      this.bounceRateEl.innerHTML = `${this.round(bounceRate)}%`;
     });
   }
 
@@ -77,5 +79,9 @@ window.Umami.StatisticsWidget = class UmamiStatisticsWidget {
       }
       default: break;
     }
+  }
+
+  round(number) {
+    return Math.round((number + Number.EPSILON) * 100) / 100;
   }
 };
